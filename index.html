@@ -1,44 +1,277 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfólio - Pedro Miclos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedro Miclos | Portfólio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #050816;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, #2563eb55, transparent 30%),
+        radial-gradient(circle at 80% 10%, #7c3aed55, transparent 30%),
+        radial-gradient(circle at 50% 90%, #06b6d455, transparent 30%);
+      z-index: -1;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .hero {
+      max-width: 850px;
+      animation: subir 1s ease;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1px solid #ffffff33;
+      border-radius: 30px;
+      margin-bottom: 25px;
+      background: #ffffff12;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 15px;
+    }
+
+    h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+    }
+
+    .secondary {
+      border: 1px solid #ffffff44;
+      background: #ffffff10;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px #00000055;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 25px;
+    }
+
+    .title {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff10;
+      border: 1px solid #ffffff22;
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #38bdf8;
+    }
+
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skills span {
+      padding: 12px 18px;
+      background: #ffffff12;
+      border: 1px solid #ffffff22;
+      border-radius: 30px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #ffffff10;
+      border-radius: 25px;
+      padding: 45px;
+      border: 1px solid #ffffff22;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #94a3b8;
+    }
+
+    @keyframes subir {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="bg"></div>
 
   <header>
-    <h1>Pedro Miclos</h1>
-    <p>Estudante de Ciência da Computação | Desenvolvimento | Tecnologia</p>
+    <div class="hero">
+      <div class="tag">Portfólio Profissional</div>
+      <h1>Pedro <span>Miclos</span></h1>
+      <p>
+        Estudante de Ciência da Computação, apaixonado por tecnologia,
+        desenvolvimento web, Python e soluções digitais modernas.
+      </p>
+
+      <div class="btns">
+        <a href="#projetos" class="btn primary">Ver Projetos</a>
+        <a href="#contato" class="btn secondary">Entrar em Contato</a>
+      </div>
+    </div>
   </header>
 
   <section>
-    <h2>Sobre mim</h2>
-    <p>Sou estudante de Ciência da Computação, tenho interesse em desenvolvimento, tecnologia e soluções digitais.</p>
-  </section>
+    <h2 class="title">Sobre mim</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Quem sou</h3>
+        <p>Sou estudante de Ciência da Computação e estou desenvolvendo meus conhecimentos em programação, banco de dados e criação de sistemas.</p>
+      </div>
 
-  <section>
-    <h2>Habilidades</h2>
-    <ul>
-      <li>Python</li>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>Banco de Dados</li>
-    </ul>
-  </section>
+      <div class="card">
+        <h3>Objetivo</h3>
+        <p>Busco evoluir como desenvolvedor, criar projetos reais e aplicar tecnologia para resolver problemas do dia a dia.</p>
+      </div>
 
-  <section>
-    <h2>Projetos</h2>
-    <div class="projeto">
-      <h3>Sistema simples em Python</h3>
-      <p>Projeto usando lógica de programação e banco de dados.</p>
+      <div class="card">
+        <h3>Perfil</h3>
+        <p>Tenho facilidade com tecnologia, organização, aprendizado rápido e interesse em desenvolvimento profissional.</p>
+      </div>
     </div>
   </section>
 
   <section>
-    <h2>Contato</h2>
-    <p>Email: pedromcls74@gmail.com</p>
+    <h2 class="title">Habilidades</h2>
+    <div class="skills">
+      <span>Python</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Banco de Dados</span>
+      <span>GitHub</span>
+      <span>Vercel</span>
+      <span>VS Code</span>
+    </div>
   </section>
 
+  <section id="projetos">
+    <h2 class="title">Projetos</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Sistema em Python</h3>
+        <p>Projeto com lógica de programação, cadastro de dados e organização de informações.</p>
+      </div>
+
+      <div class="card">
+        <h3>Landing Page</h3>
+        <p>Página moderna criada com HTML e CSS para apresentar serviços, ideias ou negócios digitais.</p>
+      </div>
+
+      <div class="card">
+        <h3>Banco de Dados</h3>
+        <p>Estudos usando SQLite para salvar, consultar e organizar informações em aplicações simples.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="contact">
+      <h2 class="title">Vamos conversar?</h2>
+      <p>Email: pedromcls74@gmail.com</p>
+      <br>
+      <a href="mailto:pedromcls74@gmail.com" class="btn primary">Enviar Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Pedro Miclos — Portfólio desenvolvido com HTML e CSS</p>
+  </footer>
 </body>
 </html>
