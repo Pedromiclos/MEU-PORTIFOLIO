@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedro Miclos | Portfólio</title>
 
   <style>
@@ -23,10 +23,35 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(circle at 20% 20%, #2563eb55, transparent 30%),
-        radial-gradient(circle at 80% 10%, #7c3aed55, transparent 30%),
-        radial-gradient(circle at 50% 90%, #06b6d455, transparent 30%);
+        radial-gradient(circle at 20% 20%, #2563eb66, transparent 30%),
+        radial-gradient(circle at 80% 10%, #7c3aed66, transparent 30%),
+        radial-gradient(circle at 50% 90%, #06b6d466, transparent 30%);
       z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 8, 22, 0.7);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+      border-bottom: 1px solid #ffffff18;
+    }
+
+    nav h2 {
+      color: #38bdf8;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
     }
 
     header {
@@ -34,12 +59,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px;
       text-align: center;
+      padding: 100px 25px 40px;
     }
 
     .hero {
-      max-width: 850px;
+      max-width: 900px;
       animation: subir 1s ease;
     }
 
@@ -50,7 +75,6 @@
       border-radius: 30px;
       margin-bottom: 25px;
       background: #ffffff12;
-      backdrop-filter: blur(10px);
     }
 
     h1 {
@@ -83,6 +107,8 @@
       color: white;
       font-weight: bold;
       transition: 0.3s;
+      display: inline-block;
+      margin-top: 15px;
     }
 
     .primary {
@@ -113,7 +139,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
     }
 
@@ -134,11 +160,27 @@
     .card h3 {
       color: #38bdf8;
       margin-bottom: 10px;
+      font-size: 1.4rem;
     }
 
     .card p {
       color: #cbd5e1;
       line-height: 1.5;
+    }
+
+    .techs {
+      margin-top: 15px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .techs span {
+      font-size: 0.8rem;
+      padding: 7px 10px;
+      border-radius: 20px;
+      background: #ffffff18;
+      color: #dbeafe;
     }
 
     .skills {
@@ -163,6 +205,14 @@
       border: 1px solid #ffffff22;
     }
 
+    .contact a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: block;
+      margin: 12px 0;
+    }
+
     footer {
       text-align: center;
       padding: 25px;
@@ -180,9 +230,22 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 8px;
+      }
+
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.7rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -191,87 +254,164 @@
 <body>
   <div class="bg"></div>
 
+  <nav>
+    <h2>Pedro Miclos</h2>
+    <div>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+
   <header>
     <div class="hero">
       <div class="tag">Portfólio Profissional</div>
+
       <h1>Pedro <span>Miclos</span></h1>
+
       <p>
-        Estudante de Ciência da Computação, apaixonado por tecnologia,
-        desenvolvimento web, Python e soluções digitais modernas.
+        Estudante de Ciência da Computação, focado em desenvolvimento web,
+        tecnologia, projetos digitais e criação de soluções modernas para empresas.
       </p>
 
       <div class="btns">
         <a href="#projetos" class="btn primary">Ver Projetos</a>
-        <a href="#contato" class="btn secondary">Entrar em Contato</a>
+        <a href="https://github.com/Pedromiclos" target="_blank" class="btn secondary">GitHub</a>
+        <a href="https://wa.me/5577981593498" target="_blank" class="btn secondary">WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <section>
+  <section id="sobre">
     <h2 class="title">Sobre mim</h2>
+
     <div class="cards">
       <div class="card">
         <h3>Quem sou</h3>
-        <p>Sou estudante de Ciência da Computação e estou desenvolvendo meus conhecimentos em programação, banco de dados e criação de sistemas.</p>
+        <p>
+          Sou estudante de Ciência da Computação e estou construindo minha trajetória
+          na área de tecnologia, desenvolvimento web e soluções digitais.
+        </p>
       </div>
 
       <div class="card">
-        <h3>Objetivo</h3>
-        <p>Busco evoluir como desenvolvedor, criar projetos reais e aplicar tecnologia para resolver problemas do dia a dia.</p>
+        <h3>Meu objetivo</h3>
+        <p>
+          Criar projetos profissionais, aprender novas tecnologias e transformar ideias
+          em páginas, sistemas e soluções reais.
+        </p>
       </div>
 
       <div class="card">
         <h3>Perfil</h3>
-        <p>Tenho facilidade com tecnologia, organização, aprendizado rápido e interesse em desenvolvimento profissional.</p>
+        <p>
+          Tenho facilidade com tecnologia, organização, aprendizado rápido e interesse
+          em criar projetos que tenham utilidade prática.
+        </p>
       </div>
     </div>
   </section>
 
   <section>
     <h2 class="title">Habilidades</h2>
+
     <div class="skills">
-      <span>Python</span>
       <span>HTML</span>
       <span>CSS</span>
       <span>JavaScript</span>
+      <span>Python</span>
       <span>Banco de Dados</span>
       <span>GitHub</span>
       <span>Vercel</span>
       <span>VS Code</span>
+      <span>Landing Pages</span>
     </div>
   </section>
 
   <section id="projetos">
-    <h2 class="title">Projetos</h2>
+    <h2 class="title">Projetos em destaque</h2>
+
     <div class="cards">
+
       <div class="card">
-        <h3>Sistema em Python</h3>
-        <p>Projeto com lógica de programação, cadastro de dados e organização de informações.</p>
+        <h3>Gnexus</h3>
+        <p>
+          Landing page profissional para uma ideia de negócio digital conectando
+          influenciadores, produtos e oportunidades no mercado online.
+        </p>
+
+        <div class="techs">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Vercel</span>
+        </div>
+
+        <a href="https://gnexus-site.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
       </div>
 
       <div class="card">
-        <h3>Landing Page</h3>
-        <p>Página moderna criada com HTML e CSS para apresentar serviços, ideias ou negócios digitais.</p>
+        <h3>Grupo Garcia</h3>
+        <p>
+          Projeto visual para apresentar a empresa Grupo Garcia com foco em presença
+          digital, serviços e imagem profissional na internet.
+        </p>
+
+        <div class="techs">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Design</span>
+          <span>Vercel</span>
+        </div>
+
+        <a href="https://grupo-garcia.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
       </div>
 
       <div class="card">
-        <h3>Banco de Dados</h3>
-        <p>Estudos usando SQLite para salvar, consultar e organizar informações em aplicações simples.</p>
+        <h3>Projeto Caminhoneiro</h3>
+        <p>
+          Página criada com foco no público caminhoneiro, apresentando uma proposta
+          digital voltada para comunicação, serviços ou conteúdo específico.
+        </p>
+
+        <div class="techs">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Landing Page</span>
+          <span>Vercel</span>
+        </div>
+
+        <a href="https://projeto-camenhoneiro.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
       </div>
+
     </div>
   </section>
 
   <section id="contato">
     <div class="contact">
       <h2 class="title">Vamos conversar?</h2>
-      <p>Email: pedromcls74@gmail.com</p>
+
+      <a href="mailto:pedromcls74@gmail.com">
+        Email: pedromcls74@gmail.com
+      </a>
+
+      <a href="https://wa.me/5577981593498" target="_blank">
+        WhatsApp: (77) 98159-3498
+      </a>
+
+      <a href="https://github.com/Pedromiclos" target="_blank">
+        GitHub: github.com/Pedromiclos
+      </a>
+
       <br>
-      <a href="mailto:pedromcls74@gmail.com" class="btn primary">Enviar Email</a>
+
+      <a href="https://wa.me/5577981593498" target="_blank" class="btn primary">
+        Chamar no WhatsApp
+      </a>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Pedro Miclos — Portfólio desenvolvido com HTML e CSS</p>
+    <p>© 2026 Pedro Miclos — Portfólio desenvolvido com HTML, CSS e Vercel</p>
   </footer>
 </body>
 </html>
