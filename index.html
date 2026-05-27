@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pedro Miclos | Portfólio</title>
 
   <style>
@@ -11,21 +11,33 @@
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #050816;
+      background: #060914;
       color: white;
       overflow-x: hidden;
     }
 
-    .bg {
+    body::before {
+      content: "";
       position: fixed;
       inset: 0;
       background:
         radial-gradient(circle at 20% 20%, #2563eb66, transparent 30%),
         radial-gradient(circle at 80% 10%, #7c3aed66, transparent 30%),
-        radial-gradient(circle at 50% 90%, #06b6d466, transparent 30%);
+        radial-gradient(circle at 50% 90%, #06b6d466, transparent 35%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(#ffffff08 1px, transparent 1px),
+                        linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+      background-size: 45px 45px;
       z-index: -1;
     }
 
@@ -37,21 +49,27 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(5, 8, 22, 0.7);
-      backdrop-filter: blur(12px);
-      z-index: 10;
+      background: rgba(6, 9, 20, 0.75);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid #ffffff18;
+      z-index: 10;
     }
 
     nav h2 {
       color: #38bdf8;
+      letter-spacing: 1px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
+      margin-left: 22px;
       font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
     }
 
     header {
@@ -60,37 +78,31 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px 25px 40px;
+      padding: 120px 25px 60px;
     }
 
     .hero {
-      max-width: 900px;
-      animation: subir 1s ease;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 10px 18px;
-      border: 1px solid #ffffff33;
-      border-radius: 30px;
-      margin-bottom: 25px;
-      background: #ffffff12;
+      max-width: 950px;
+      animation: aparecer 1s ease;
     }
 
     h1 {
-      font-size: 4rem;
-      margin-bottom: 15px;
+      font-size: 4.7rem;
+      margin-bottom: 20px;
+      line-height: 1;
     }
 
     h1 span {
-      color: #38bdf8;
+      background: linear-gradient(135deg, #38bdf8, #7c3aed);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #cbd5e1;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      line-height: 1.7;
+      margin-bottom: 35px;
     }
 
     .btns {
@@ -102,7 +114,7 @@
 
     .btn {
       padding: 14px 24px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-decoration: none;
       color: white;
       font-weight: bold;
@@ -113,6 +125,7 @@
 
     .primary {
       background: linear-gradient(135deg, #2563eb, #7c3aed);
+      box-shadow: 0 12px 30px #2563eb44;
     }
 
     .secondary {
@@ -121,87 +134,150 @@
     }
 
     .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px #00000055;
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 18px 35px #00000077;
     }
 
     section {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding: 80px 25px;
+      padding: 85px 25px;
     }
 
     .title {
-      font-size: 2.4rem;
-      margin-bottom: 30px;
+      font-size: 2.6rem;
+      margin-bottom: 35px;
       text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: -20px auto 40px;
+      line-height: 1.6;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
     .card {
       background: #ffffff10;
       border: 1px solid #ffffff22;
-      border-radius: 20px;
-      padding: 25px;
-      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(14px);
       transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, #38bdf833, transparent);
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+      left: 60%;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
       border-color: #38bdf8;
     }
 
     .card h3 {
       color: #38bdf8;
-      margin-bottom: 10px;
-      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+      position: relative;
     }
 
     .card p {
       color: #cbd5e1;
-      line-height: 1.5;
-    }
-
-    .techs {
-      margin-top: 15px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .techs span {
-      font-size: 0.8rem;
-      padding: 7px 10px;
-      border-radius: 20px;
-      background: #ffffff18;
-      color: #dbeafe;
+      line-height: 1.6;
+      position: relative;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .skills span {
-      padding: 12px 18px;
+      padding: 13px 19px;
       background: #ffffff12;
       border: 1px solid #ffffff22;
       border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .skills span:hover {
+      background: #38bdf822;
+      transform: translateY(-4px);
+    }
+
+    .project {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .techs {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .techs span {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      border-radius: 20px;
+      background: #ffffff18;
+      color: #dbeafe;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat {
+      background: #ffffff10;
+      border: 1px solid #ffffff22;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .stat strong {
+      font-size: 2rem;
+      color: #38bdf8;
     }
 
     .contact {
       text-align: center;
       background: #ffffff10;
-      border-radius: 25px;
-      padding: 45px;
+      border-radius: 28px;
+      padding: 50px 25px;
       border: 1px solid #ffffff22;
     }
 
@@ -210,19 +286,19 @@
       text-decoration: none;
       font-size: 1.1rem;
       display: block;
-      margin: 12px 0;
+      margin: 13px 0;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px;
       color: #94a3b8;
     }
 
-    @keyframes subir {
+    @keyframes aparecer {
       from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(45px);
       }
       to {
         opacity: 1;
@@ -241,7 +317,7 @@
       }
 
       h1 {
-        font-size: 2.7rem;
+        font-size: 3rem;
       }
 
       .hero p {
@@ -252,30 +328,28 @@
 </head>
 
 <body>
-  <div class="bg"></div>
 
   <nav>
     <h2>Pedro Miclos</h2>
     <div>
       <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#projetos">Projeto</a>
       <a href="#contato">Contato</a>
     </div>
   </nav>
 
   <header>
     <div class="hero">
-      <div class="tag">Portfólio Profissional</div>
-
       <h1>Pedro <span>Miclos</span></h1>
 
       <p>
         Estudante de Ciência da Computação, focado em desenvolvimento web,
-        tecnologia, projetos digitais e criação de soluções modernas para empresas.
+        tecnologia, landing pages e criação de soluções digitais modernas.
       </p>
 
       <div class="btns">
-        <a href="#projetos" class="btn primary">Ver Projetos</a>
+        <a href="#projetos" class="btn primary">Ver meu projeto</a>
         <a href="https://github.com/Pedromiclos" target="_blank" class="btn secondary">GitHub</a>
         <a href="https://wa.me/5577981593498" target="_blank" class="btn secondary">WhatsApp</a>
       </div>
@@ -284,35 +358,49 @@
 
   <section id="sobre">
     <h2 class="title">Sobre mim</h2>
+    <p class="subtitle">
+      Estou construindo minha trajetória na área de tecnologia, criando projetos reais
+      e evoluindo meus conhecimentos em programação, design e presença digital.
+    </p>
 
     <div class="cards">
       <div class="card">
-        <h3>Quem sou</h3>
-        <p>
-          Sou estudante de Ciência da Computação e estou construindo minha trajetória
-          na área de tecnologia, desenvolvimento web e soluções digitais.
-        </p>
+        <h3>Desenvolvimento</h3>
+        <p>Criação de páginas modernas, responsivas e pensadas para apresentar ideias, empresas e projetos digitais.</p>
       </div>
 
       <div class="card">
-        <h3>Meu objetivo</h3>
-        <p>
-          Criar projetos profissionais, aprender novas tecnologias e transformar ideias
-          em páginas, sistemas e soluções reais.
-        </p>
+        <h3>Tecnologia</h3>
+        <p>Interesse em programação, automação, banco de dados, inteligência artificial e soluções para negócios.</p>
       </div>
 
       <div class="card">
-        <h3>Perfil</h3>
-        <p>
-          Tenho facilidade com tecnologia, organização, aprendizado rápido e interesse
-          em criar projetos que tenham utilidade prática.
-        </p>
+        <h3>Perfil profissional</h3>
+        <p>Organizado, curioso, dedicado e sempre buscando melhorar meus projetos com um visual mais limpo e profissional.</p>
       </div>
     </div>
   </section>
 
   <section>
+    <div class="stats">
+      <div class="stat">
+        <strong>01</strong>
+        <p>Projeto em destaque</p>
+      </div>
+
+      <div class="stat">
+        <strong>08+</strong>
+        <p>Habilidades em evolução</p>
+      </div>
+
+      <div class="stat">
+        <strong>100%</strong>
+        <p>Foco em aprender</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
     <h2 class="title">Habilidades</h2>
 
     <div class="skills">
@@ -325,64 +413,33 @@
       <span>Vercel</span>
       <span>VS Code</span>
       <span>Landing Pages</span>
+      <span>Design Web</span>
     </div>
   </section>
 
   <section id="projetos">
-    <h2 class="title">Projetos em destaque</h2>
+    <h2 class="title">Projeto em destaque</h2>
+    <p class="subtitle">
+      Projeto principal desenvolvido para apresentar uma ideia de negócio digital com visual moderno,
+      foco profissional e presença online.
+    </p>
 
-    <div class="cards">
+    <div class="card project">
+      <h3>Gnexus</h3>
+      <p>
+        Landing page profissional para uma proposta de negócio digital voltada a conectar
+        influenciadores, produtos, serviços e oportunidades no mercado online.
+      </p>
 
-      <div class="card">
-        <h3>Gnexus</h3>
-        <p>
-          Landing page profissional para uma ideia de negócio digital conectando
-          influenciadores, produtos e oportunidades no mercado online.
-        </p>
-
-        <div class="techs">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>Vercel</span>
-        </div>
-
-        <a href="https://gnexus-site.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
+      <div class="techs">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Vercel</span>
+        <span>Landing Page</span>
       </div>
 
-      <div class="card">
-        <h3>Grupo Garcia</h3>
-        <p>
-          Projeto visual para apresentar a empresa Grupo Garcia com foco em presença
-          digital, serviços e imagem profissional na internet.
-        </p>
-
-        <div class="techs">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>Design</span>
-          <span>Vercel</span>
-        </div>
-
-        <a href="https://grupo-garcia.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
-      </div>
-
-      <div class="card">
-        <h3>Projeto Caminhoneiro</h3>
-        <p>
-          Página criada com foco no público caminhoneiro, apresentando uma proposta
-          digital voltada para comunicação, serviços ou conteúdo específico.
-        </p>
-
-        <div class="techs">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>Landing Page</span>
-          <span>Vercel</span>
-        </div>
-
-        <a href="https://projeto-camenhoneiro.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
-      </div>
-
+      <a href="https://gnexus-site.vercel.app" target="_blank" class="btn primary">Ver Projeto</a>
     </div>
   </section>
 
@@ -390,19 +447,9 @@
     <div class="contact">
       <h2 class="title">Vamos conversar?</h2>
 
-      <a href="mailto:pedromcls74@gmail.com">
-        Email: pedromcls74@gmail.com
-      </a>
-
-      <a href="https://wa.me/5577981593498" target="_blank">
-        WhatsApp: (77) 98159-3498
-      </a>
-
-      <a href="https://github.com/Pedromiclos" target="_blank">
-        GitHub: github.com/Pedromiclos
-      </a>
-
-      <br>
+      <a href="mailto:pedromcls74@gmail.com">Email: pedromcls74@gmail.com</a>
+      <a href="https://wa.me/5577981593498" target="_blank">WhatsApp: (77) 98159-3498</a>
+      <a href="https://github.com/Pedromiclos" target="_blank">GitHub: github.com/Pedromiclos</a>
 
       <a href="https://wa.me/5577981593498" target="_blank" class="btn primary">
         Chamar no WhatsApp
@@ -413,5 +460,6 @@
   <footer>
     <p>© 2026 Pedro Miclos — Portfólio desenvolvido com HTML, CSS e Vercel</p>
   </footer>
+
 </body>
 </html>
